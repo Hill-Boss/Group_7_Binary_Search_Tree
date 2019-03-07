@@ -3,7 +3,6 @@
 
 #include "node.h"
 
-// node assuming node struct called node
 typedef struct binary_tree_struct {
   int size;
   node *root;
