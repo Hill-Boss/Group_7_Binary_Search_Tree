@@ -9,17 +9,24 @@ void initialize(binary_tree* bt) {
 
 bool search(binary_tree* bt, int key) {
 	node* tmpNode = bt->root;
-	if (key == tmpNode->data) {
-		return True
+	
+	if (tmpNode == NULL) {
+		return False;
 	}
 
-	else if (key < tmpNode->data) {
-		tmpNode = tmpNode->left;
+	while (tmpNode != NULL) {
+		if (key == tmpNode->data) {
+			return True;
+		}
+		else if (key < tmpNode->data) {
+			tmpNode = tmpNode->left;
+		}
+		else {
+			tmpNode = tmpNode->right;
+		}
 	}
-	
-	else {
-		tmpNode = tmpNode->right;
-	}
+
+	return False;
 }
 
 void insert(binary_tree* bt, int item) {
