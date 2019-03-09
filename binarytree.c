@@ -30,9 +30,9 @@ void insert(binary_tree* bt, int item) {
 	node* newNode;
 	newNode = (node*)malloc(sizeof(node));
 	newNode->data = item;
-	
+
 	node* tmpNode = bt->root;
-	
+
 	bt->size++;
 }
 
@@ -49,9 +49,19 @@ void printpostorder(binary_tree* bt) {
 }
 
 int btsize(binary_tree* bt) {
-
+	return bt->size;
 }
 
 int treeheight(binary_tree* bt) {
-
+	if (bt->root != NULL) {
+		int lh = treeheight(bt->root = bt->root->left);
+		int rh = treeheight(bt->root = bt->root->right);
+		if (lh > rh) {
+			return 1 + lh;
+		} else {
+			return 1 + rh;
+		}
+	} else {
+		return 0;
+	}
 }
