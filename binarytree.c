@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include "binarytree.h"
 
@@ -9,10 +10,6 @@ void initialize(binary_tree* bt) {
 
 bool search(binary_tree* bt, int key) {
 	node* tmpNode = bt->root;
-	
-	if (tmpNode == NULL) {
-		return False;
-	}
 
 	while (tmpNode != NULL) {
 		if (key == tmpNode->data) {
@@ -30,7 +27,13 @@ bool search(binary_tree* bt, int key) {
 }
 
 void insert(binary_tree* bt, int item) {
-
+	node* newNode;
+	newNode = (node*)malloc(sizeof(node));
+	newNode->data = item;
+	
+	node* tmpNode = bt->root;
+	
+	bt->size++;
 }
 
 void printinorder(binary_tree* bt) {
