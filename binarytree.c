@@ -26,20 +26,49 @@ bool search(binary_tree* bt, int key) {
 	return false;
 }
 
-void insert(binary_tree* bt, int item) {
-	node* newNode;
-	newNode = (node*)malloc(sizeof(node));
-	newNode->data = item;
+void insert_node(node* root, node* new) {
+	// printf("%d, %d\n", root->data, new->data);
 
-	node* tmpNode = bt->root;
+	if (root->data > new->data && root->left == NULL) {
+		root->left = new;
+	} else if (root->data < new->data && root->right == NULL) {
+		root->right = new;
+	} else if (root->data > new->data && root->left != NULL) {
+		insert_node(root->left, new);
+	} else if (root->data < new->data && root->right != NULL) {
+		insert_node(root->right, new);
+	}
+}
+
+void insert(binary_tree* bt, int item) {
+	node* newNode = malloc(sizeof(node));
+	newNode->data = item;
+	newNode->left = NULL;
+	newNode->right = NULL;
+
+	if (bt->root == NULL) {
+		bt->root = newNode;
+	} else {
+		insert_node(bt->root, newNode);
+	}
 
 	bt->size++;
+}
+
+void printinorder_node(node* node) {
+
 }
 
 void printinorder(binary_tree* bt) {
 	nodeinorder(bt->root);
 }
 
+void printpreorder_node(node* node) {
+	if (node != NULL) {
+		printf("%d ", node->data);
+		printpreorder_node(node->left);
+		printpreorder_node(node->right);
+	}
 void nodeinorder(node* node) {
 	if (node != NULL) {
 		
@@ -52,7 +81,12 @@ void nodeinorder(node* node) {
 }
 
 void printpreorder(binary_tree* bt) {
-	
+	printpreorder_node(bt->root);
+	printf("\n");
+}
+
+void printpostorder_node(node* node) {
+
 }
 
 void printpostorder(binary_tree* bt) {
@@ -73,18 +107,21 @@ int btsize(binary_tree* bt) {
 	return bt->size;
 }
 
-int treeheight(binary_tree* bt) {
-	if (bt->root != NULL) {
-		bt->root = bt->root->left;
-		int lh = treeheight(bt);
-		bt->root = bt->root->right;
-		int rh = treeheight(bt);
-		if (lh > rh) {
-			return 1 + lh;
-		} else {
-			return 1 + rh;
-		}
-	} else {
-		return 0;
+int treeheight_node(node* node) {
+	if (node == NULL) {
+		return -1;
 	}
+
+	int lh = treeheight_node(node->left);
+	int rh = treeheight_node(node->right);
+
+	if (lh > rh) {
+		return lh + 1;
+	} else {
+		return rh + 1;
+	}
+}
+
+int treeheight(binary_tree* bt) {
+	return treeheight_node(bt->root);
 }
