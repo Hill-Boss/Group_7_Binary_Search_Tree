@@ -37,11 +37,21 @@ void insert(binary_tree* bt, int item) {
 }
 
 void printinorder(binary_tree* bt) {
+	nodeinorder(bt->root);
+}
 
+void nodeinorder(node* node) {
+	if (node == NULL) {
+		return
+	}
+
+	nodeinorder(node->left);
+	printf("%d ", node->data);
+	nodeinorder(node->right);
 }
 
 void printpreorder(binary_tree* bt) {
-
+	
 }
 
 void printpostorder(binary_tree* bt) {
