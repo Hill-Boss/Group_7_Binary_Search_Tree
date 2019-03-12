@@ -13,7 +13,7 @@ bool search(binary_tree* bt, int key) {
 
 	while (tmpNode != NULL) {
 		if (key == tmpNode->data) {
-			return True;
+			return true;
 		}
 		else if (key < tmpNode->data) {
 			tmpNode = tmpNode->left;
@@ -23,7 +23,7 @@ bool search(binary_tree* bt, int key) {
 		}
 	}
 
-	return False;
+	return false;
 }
 
 void insert(binary_tree* bt, int item) {

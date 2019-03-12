@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 #include "binarytree.h"
 
 int main(int argc, char * argv []) {
