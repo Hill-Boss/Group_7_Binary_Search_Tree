@@ -41,13 +41,14 @@ void printinorder(binary_tree* bt) {
 }
 
 void nodeinorder(node* node) {
-	if (node == NULL) {
-		return
-	}
+	if (node != NULL) {
+		
 
 	nodeinorder(node->left);
 	printf("%d ", node->data);
 	nodeinorder(node->right);
+
+	}
 }
 
 void printpreorder(binary_tree* bt) {
