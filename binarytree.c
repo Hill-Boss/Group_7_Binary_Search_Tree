@@ -26,14 +26,26 @@ bool search(binary_tree* bt, int key) {
 	return False;
 }
 
+void insert_node(node* root, node* new) {
+	if (root->data < new->data && root->left == NULL) {
+		root->left = new;
+	} else if (root->data > new->data && root->right == NULL) {
+		root->right = new;
+	}
+
+	if (root->data < new->data && root->left != NULL) {
+		insert_node(root->left, new);
+	} else if (root->data > new->data && root->right != NULL) {
+		insert_node(root->right, new);
+	}
+}
+
 void insert(binary_tree* bt, int item) {
-	node* newNode;
-	newNode = malloc(sizeof(node));
+	node* newNode = malloc(sizeof(node));
 	newNode->data = item;
 
-	node* tmpNode = bt->root;
+	insert_node(bt->root, newNode);
 
-	
 	bt->size++;
 }
 
@@ -46,7 +58,11 @@ void printinorder(binary_tree* bt) {
 }
 
 void printpreorder_node(node* node) {
-
+	if (node != NULL) {
+		printf("%d ", node->data);
+		printpreorder_node(node->left);
+		printpreorder_node(node->right);
+	}
 }
 
 void printpreorder(binary_tree* bt) {
