@@ -28,26 +28,35 @@ bool search(binary_tree* bt, int key) {
 
 // Cody
 void insert_node(node* root, node* new) {
+	// if the left is null and the newNode needs to be on the left of root put it there
 	if (root->data > new->data && root->left == NULL) {
 		root->left = new;
-	} else if (root->data < new->data && root->right == NULL) {
+	}
+	// if the right is null and the newNode needs to be on the right of root put it there
+	else if (root->data < new->data && root->right == NULL) {
 		root->right = new;
-	} else if (root->data > new->data && root->left != NULL) {
+	}
+	// insert new to the left of root
+	else if (root->data > new->data && root->left != NULL) {
 		insert_node(root->left, new);
-	} else if (root->data < new->data && root->right != NULL) {
+	}
+	// insert new to the right of root
+	else if (root->data < new->data && root->right != NULL) {
 		insert_node(root->right, new);
 	}
 }
 
 void insert(binary_tree* bt, int item) {
+	// make new node
 	node* newNode = malloc(sizeof(node));
 	newNode->data = item;
-	newNode->left = NULL;
-	newNode->right = NULL;
 
+	// if root is null new is root
 	if (bt->root == NULL) {
 		bt->root = newNode;
-	} else {
+	}
+	// else find where new should go and put it there
+	else {
 		insert_node(bt->root, newNode);
 	}
 
@@ -68,6 +77,7 @@ void printinorder(binary_tree* bt) {
 
 // Cody
 void printpreorder_node(node* node) {
+	// if node not null print node->data and the print the node->left and node->right
 	if (node != NULL) {
 		printf("%d ", node->data);
 		printpreorder_node(node->left);
@@ -75,7 +85,9 @@ void printpreorder_node(node* node) {
 	}
 }
 
+// Cody
 void printpreorder(binary_tree* bt) {
+	// pass bt->root into a method that takes node as argument
 	printpreorder_node(bt->root);
 }
 
@@ -92,26 +104,33 @@ void printpostorder(binary_tree* bt) {
 }
 
 // Cody
-int btsize(binary_tree* bt) {
+int btsize(binary_tree* bt)
+	// return bt->size;
 	return bt->size;
 }
 
 // Cody
 int treeheight_node(node* node) {
+	// if we reach a leaf return -1 because we went to far
 	if (node == NULL) {
 		return -1;
 	}
 
+	// get the height of left subtree
 	int lh = treeheight_node(node->left);
+	// get the height of right subtree
 	int rh = treeheight_node(node->right);
 
-	if (lh > rh) {
+	// return max(lh,rh) + 1
+ 	if (lh > rh) {
 		return lh + 1;
 	} else {
 		return rh + 1;
 	}
 }
 
+// Cody
 int treeheight(binary_tree* bt) {
+	// pass bt->root into method that takes node as argument
 	return treeheight_node(bt->root);
 }
