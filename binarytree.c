@@ -13,7 +13,7 @@ bool search(binary_tree* bt, int key) {
 
 	while (tmpNode != NULL) {
 		if (key == tmpNode->data) {
-			return True;
+			return true;
 		}
 		else if (key < tmpNode->data) {
 			tmpNode = tmpNode->left;
@@ -23,26 +23,27 @@ bool search(binary_tree* bt, int key) {
 		}
 	}
 
-	return False;
+	return false;
 }
 
 void insert_node(node* root, node* new) {
-	if (root->data < new->data && root->left == NULL) {
-		root->left = new;
-	} else if (root->data > new->data && root->right == NULL) {
-		root->right = new;
-	}
-
-	if (root->data < new->data && root->left != NULL) {
-		insert_node(root->left, new);
-	} else if (root->data > new->data && root->right != NULL) {
-		insert_node(root->right, new);
-	}
+	printf("%d, %d\n", root->data, new->data);
+	// if (root->data < new->data && root->left == NULL) {
+	// 	root->left = new;
+	// } else if (root->data > new->data && root->right == NULL) {
+	// 	root->right = new;
+	// } else if (root->data < new->data && root->left != NULL) {
+	// 	insert_node(root->left, new);
+	// } else if (root->data > new->data && root->right != NULL) {
+	// 	insert_node(root->right, new);
+	// }
 }
 
 void insert(binary_tree* bt, int item) {
 	node* newNode = malloc(sizeof(node));
 	newNode->data = item;
+	newNode->left = NULL;
+	newNode->right = NULL;
 
 	insert_node(bt->root, newNode);
 
@@ -82,12 +83,12 @@ int btsize(binary_tree* bt) {
 }
 
 int treeheight_node(node* node) {
-	if (node == null) {
+	if (node == NULL) {
 		return 0;
 	}
 
-	int lh = findHeight(node->left);
-	int rh = findHeight(node->right);
+	int lh = treeheight_node(node->left);
+	int rh = treeheight_node(node->right);
 
 	if (lh > rh) {
 		return lh + 1;
