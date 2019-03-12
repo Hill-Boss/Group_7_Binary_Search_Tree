@@ -51,7 +51,7 @@ void nodeinorder(node* node) {
 }
 
 void printpreorder(binary_tree* bt) {
-
+	
 }
 
 void printpostorder(binary_tree* bt) {
