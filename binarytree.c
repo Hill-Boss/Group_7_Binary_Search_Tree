@@ -49,14 +49,13 @@ void printpostorder(binary_tree* bt) {
 }
 
 void nodepostorder(node* node) {
-	if (node == NULL) {
-		return
+	if (node != NULL) {
+
+		nodepostorder(node->left);
+		nodepostorder(node->right):
+
+		printf("%d", node->data);
 	}
-
-	nodepostorder(node->left);
-	nodepostorder(node->right):
-
-	printf("%d", node->data);
 }
 
 int btsize(binary_tree* bt) {
