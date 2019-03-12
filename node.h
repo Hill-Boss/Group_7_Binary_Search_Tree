@@ -7,6 +7,4 @@ typedef struct node_struct {
 	struct node_struct* right;
 } node;
 
-node* newNode(int data);
-
 #endif
