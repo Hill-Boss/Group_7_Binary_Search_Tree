@@ -19,27 +19,26 @@ int main(int argc, char * argv []) {
 		insert(bt, currNum);
 	}
 
-	// printf("Print in order\n");
-	// printinorder(bt);
+	printf("Print in order\n");
+	printinorder(bt);
 
 	printf("\nPrint pre order\n");
 	printpreorder(bt);
 
-	// printf("\nPrint post order\n");
-	// printpostorder(bt);
-	// printf("\n");
+	printf("\nPrint post order\n");
+	printpostorder(bt);
 
-	// found = search(bt, 33);
-	// if (found){
-	// printf("FOUND 33\n");
-	// }
-	//
-	// found = search(bt,38);
-	// if (found){
-	// printf("FOUND 38\n");
-	// }
+	found = search(bt, 33);
+	if (found){
+	printf("\nFOUND 33\n");
+	}
 
-	printf("Number of elements in tree: %d\n", btsize(bt));
+	found = search(bt, 38);
+	if (found){
+	printf("\nFOUND 38\n");
+	}
+
+	printf("\nNumber of elements in tree: %d\n", btsize(bt));
 
 	printf("Tree height: %d\n", treeheight(bt));
 

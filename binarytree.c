@@ -26,9 +26,8 @@ bool search(binary_tree* bt, int key) {
 	return false;
 }
 
+// Cody
 void insert_node(node* root, node* new) {
-	// printf("%d, %d\n", root->data, new->data);
-
 	if (root->data > new->data && root->left == NULL) {
 		root->left = new;
 	} else if (root->data < new->data && root->right == NULL) {
@@ -55,58 +54,49 @@ void insert(binary_tree* bt, int item) {
 	bt->size++;
 }
 
-void printinorder_node(node* node) {
-
+void nodeinorder(node* node) {
+	if (node != NULL) {
+		nodeinorder(node->left);
+		printf("%d ", node->data);
+		nodeinorder(node->right);
+	}
 }
 
 void printinorder(binary_tree* bt) {
 	nodeinorder(bt->root);
 }
 
+// Cody
 void printpreorder_node(node* node) {
 	if (node != NULL) {
 		printf("%d ", node->data);
 		printpreorder_node(node->left);
 		printpreorder_node(node->right);
 	}
-void nodeinorder(node* node) {
-	if (node != NULL) {
-		
-
-	nodeinorder(node->left);
-	printf("%d ", node->data);
-	nodeinorder(node->right);
-
-	}
 }
 
 void printpreorder(binary_tree* bt) {
 	printpreorder_node(bt->root);
-	printf("\n");
 }
 
-void printpostorder_node(node* node) {
-
+void nodepostorder(node* node) {
+	if (node != NULL) {
+		nodepostorder(node->left);
+		nodepostorder(node->right);
+		printf("%d " , node->data);
+	}
 }
 
 void printpostorder(binary_tree* bt) {
 	nodepostorder(bt->root);
 }
 
-void nodepostorder(node* node) {
-	if (node != NULL) {
-
-		nodepostorder(node->left);
-		nodepostorder(node->right):
-
-		printf("%d", node->data);
-	}
-}
-
+// Cody
 int btsize(binary_tree* bt) {
 	return bt->size;
 }
 
+// Cody
 int treeheight_node(node* node) {
 	if (node == NULL) {
 		return -1;
