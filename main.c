@@ -16,7 +16,6 @@ int main(int argc, char * argv []) {
 
 	while (!feof(inFile)) {
 		fscanf(inFile, " %d", &currNum);
-		// printf("%d ", currNum);
 		insert(bt, currNum);
 	}
 
