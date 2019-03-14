@@ -1,0 +1,7 @@
+#!/bin/bash
+
+gcc main.c binarytree.c
+
+./a.out test1.txt
+./a.out test2.txt
+./a.out test3.txt
