@@ -3,21 +3,32 @@
 #include <stdbool.h>
 #include "binarytree.h"
 
+//Nick
 void initialize(binary_tree* bt) {
+	//Giving tree's size value zero
 	bt->size = 0;
+	//Giving tree's node pointer value NULL
 	bt->root = NULL;
 }
-
+//Nick
 bool search(binary_tree* bt, int key) {
+	//Declaring temporary node pointer
 	node* tmpNode = bt->root;
 
+	//Iterating through binary tree
 	while (tmpNode != NULL) {
+
+		//Checking if root value is key
 		if (key == tmpNode->data) {
 			return true;
 		}
+
+		//Checking if key is less than current node's data
 		else if (key < tmpNode->data) {
 			tmpNode = tmpNode->left;
 		}
+
+		//Checking if key is greater than current node's data
 		else {
 			tmpNode = tmpNode->right;
 		}
@@ -63,8 +74,11 @@ void insert(binary_tree* bt, int item) {
 	bt->size++;
 }
 
+//Nick
 void nodeinorder(node* node) {
+	//Making sure that node is not NULL
 	if (node != NULL) {
+		//Traversing through bt and printing
 		nodeinorder(node->left);
 		printf("%d ", node->data);
 		nodeinorder(node->right);
@@ -72,6 +86,7 @@ void nodeinorder(node* node) {
 }
 
 void printinorder(binary_tree* bt) {
+	//Passing nodeinorder bt's root node
 	nodeinorder(bt->root);
 }
 
