@@ -119,7 +119,7 @@ void printpostorder(binary_tree* bt) {
 }
 
 // Cody
-int btsize(binary_tree* bt)
+int btsize(binary_tree* bt) {
 	// return bt->size;
 	return bt->size;
 }
