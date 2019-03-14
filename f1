@@ -1,0 +1,9 @@
+
+Print in order
+17 46 49 50 51 60 68 69 73 74 75 77 79 86 91 94 95 96 98 100 
+Print pre order
+17 69 51 50 46 49 60 68 74 73 98 94 77 75 91 86 79 96 95 100 
+Print post order
+49 46 50 68 60 51 73 75 79 86 91 77 95 96 94 100 98 74 69 17 
+Number of elements in tree: 20
+Tree height: 8
