@@ -105,7 +105,7 @@ void printpreorder(binary_tree* bt) {
 	// pass bt->root into a method that takes node as argument
 	printpreorder_node(bt->root);
 }
-
+// Jake
 void nodepostorder(node* node) {
 	// if node not null, print node->left and node->right. Then prints node->data
 	if (node != NULL) {
@@ -114,7 +114,7 @@ void nodepostorder(node* node) {
 		printf("%d " , node->data);
 	}
 }
-
+// Jake
 void printpostorder(binary_tree* bt) {
 	//passes bt->root into nodepostorder
 	nodepostorder(bt->root);
