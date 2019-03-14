@@ -1,4 +1,4 @@
-Cody Hillboss, Jacob Elizabeth Bexten, Nicholas Shepard
+Cody Hillboss, Jacob Bexten, Nicholas Shepard
 
 Group_7_Binary_Search_Tree
 
