@@ -92,6 +92,7 @@ void printpreorder(binary_tree* bt) {
 }
 
 void nodepostorder(node* node) {
+	// if node not null, print node->left and node->right. Then prints node->data
 	if (node != NULL) {
 		nodepostorder(node->left);
 		nodepostorder(node->right);
@@ -100,6 +101,7 @@ void nodepostorder(node* node) {
 }
 
 void printpostorder(binary_tree* bt) {
+	//passes bt->root into nodepostorder
 	nodepostorder(bt->root);
 }
 
