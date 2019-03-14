@@ -3,11 +3,62 @@
 gcc main.c binarytree.c
 
 # Test 3 files
-./a.out test1.txt > f1
-./a.out test2.txt > f2
-./a.out test3.txt > f3
+./a.out test1.txt > file1
+result="$(diff "./f1" "./file1")"
 
-./a.out > f4
-./a.out test2.txt test3.txt > f5
+if $result &> /dev/null; then
+    echo "Test 1 Passed"
+else
+    echo "Test 1 Failed"
+    echo $result
+fi
 
-./a.out test7.txt > f6
+./a.out test2.txt > file2
+if $result &> /dev/null; then
+    echo "Test 2 Passed"
+else
+    echo "Test 2 Failed"
+    echo $result
+fi
+
+./a.out test3.txt > file3
+if $result &> /dev/null; then
+    echo "Test 3 Passed"
+else
+    echo "Test 3 Failed"
+    echo $result
+fi
+
+# Test with incorrect number of arguments
+./a.out > file4
+if $result &> /dev/null; then
+    echo "Test 4 Passed"
+else
+    echo "Test 4 Failed"
+    echo $result
+fi
+
+./a.out test2.txt test3.txt > file5
+if $result &> /dev/null; then
+    echo "Test 5 Passed"
+else
+    echo "Test 5 Failed"
+    echo $result
+fi
+
+# Test with file that doesn't exist
+./a.out test7.txt > file6
+if $result &> /dev/null; then
+    echo "Test 6 Passed"
+else
+    echo "Test 6 Failed"
+    echo $result
+fi
+
+# Remove all file#
+rm file1
+rm file2
+rm file3
+rm file4
+rm file5
+rm file6
