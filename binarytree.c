@@ -58,20 +58,20 @@ void insert_node(node* root, node* new) {
 }
 
 void insert(binary_tree* bt, int item) {
-	// make new node
-	node* newNode = malloc(sizeof(node));
-	newNode->data = item;
-
-	// if root is null new is root
-	if (bt->root == NULL) {
-		bt->root = newNode;
+	if (!search(bt, item)) {
+		// make new node
+		node* newNode = malloc(sizeof(node));
+		newNode->data = item;
+		// if root is null new is root
+		if (bt->root == NULL) {
+			bt->root = newNode;
+		}
+		// else find where new should go and put it there
+		else {
+			insert_node(bt->root, newNode);
+		}
+		bt->size++;
 	}
-	// else find where new should go and put it there
-	else {
-		insert_node(bt->root, newNode);
-	}
-
-	bt->size++;
 }
 
 //Nick

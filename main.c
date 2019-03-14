@@ -24,7 +24,7 @@ int main(int argc, char * argv []) {
 	}
 
 	//Printing numbers in numerical order
-	printf("Print in order\n");
+	printf("\nPrint in order\n");
 	printinorder(bt);
 
 	//Printing numbers as they appear in the file
@@ -38,12 +38,12 @@ int main(int argc, char * argv []) {
 	//Searching for value
 	found = search(bt, 33);
 	if (found){
-	printf("\nFOUND 33\n");
+		printf("\nFOUND 33\n");
 	}
 
 	found = search(bt, 38);
 	if (found){
-	printf("\nFOUND 38\n");
+		printf("\nFOUND 38\n");
 	}
 
 	//Printing out additional binary tree data
