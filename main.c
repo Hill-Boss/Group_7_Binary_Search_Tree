@@ -2,7 +2,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "binarytree.h"
+
 int main(int argc, char * argv []) {
+	if (argc != 2) {
+		printf("\nIncorrect number of arguments.\n");
+		return -1;
+	}
+
 	//Declaring variables
 	int currNum;
 	bool found;
@@ -17,6 +23,11 @@ int main(int argc, char * argv []) {
 	FILE* inFile = NULL;
 	inFile = fopen(argv[1], "r");
 
+	if (inFile == NULL) {
+		printf("\nUnable to open file.\n");
+		return -1;
+	}
+
 	//Reading in and inserting numbers from the file into the binary tree
 	while (!feof(inFile)) {
 		fscanf(inFile, " %d", &currNum);
@@ -24,7 +35,7 @@ int main(int argc, char * argv []) {
 	}
 
 	//Printing numbers in numerical order
-	printf("Print in order\n");
+	printf("\nPrint in order\n");
 	printinorder(bt);
 
 	//Printing numbers as they appear in the file
@@ -38,12 +49,12 @@ int main(int argc, char * argv []) {
 	//Searching for value
 	found = search(bt, 33);
 	if (found){
-	printf("\nFOUND 33\n");
+		printf("\nFOUND 33\n");
 	}
 
 	found = search(bt, 38);
 	if (found){
-	printf("\nFOUND 38\n");
+		printf("\nFOUND 38\n");
 	}
 
 	//Printing out additional binary tree data

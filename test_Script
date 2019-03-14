@@ -1,0 +1,15 @@
+#!/bin/bash
+
+gcc main.c binarytree.c
+
+# Test 3 files
+./a.out test1.txt
+./a.out test2.txt
+./a.out test3.txt
+
+# Test with incorrect number of arguments
+./a.out
+./a.out test1.txt test2.txt
+
+# Test with file that doesn't exist
+./a.out NONE.txt
