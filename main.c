@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "binarytree.h"
-int main(int argc, char * argv []) {
 
+int main(int argc, char * argv []) {
 	if (argc != 2) {
-		printf("Incorrect number of arguments.\n");
+		printf("\nIncorrect number of arguments.\n");
 		return -1;
 	}
 
@@ -24,7 +24,7 @@ int main(int argc, char * argv []) {
 	inFile = fopen(argv[1], "r");
 
 	if (inFile == NULL) {
-		printf("Unable to open file.\n");
+		printf("\nUnable to open file.\n");
 		return -1;
 	}
 
