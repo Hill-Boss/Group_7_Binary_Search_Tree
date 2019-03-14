@@ -3,13 +3,11 @@
 gcc main.c binarytree.c
 
 # Test 3 files
-./a.out test1.txt
-./a.out test2.txt
-./a.out test3.txt
+./a.out test1.txt > f1
+./a.out test2.txt > f2
+./a.out test3.txt > f3
 
-# Test with incorrect number of arguments
-./a.out
-./a.out test1.txt test2.txt
+./a.out > f4
+./a.out test2.txt test3.txt > f5
 
-# Test with file that doesn't exist
-./a.out NONE.txt
+./a.out test7.txt > f6
