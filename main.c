@@ -3,6 +3,12 @@
 #include <stdbool.h>
 #include "binarytree.h"
 int main(int argc, char * argv []) {
+
+	if (argc != 2) {
+		printf("Incorrect number of arguments.\n");
+		return -1;
+	}
+
 	//Declaring variables
 	int currNum;
 	bool found;
@@ -16,6 +22,11 @@ int main(int argc, char * argv []) {
 	//Reading in file from command line
 	FILE* inFile = NULL;
 	inFile = fopen(argv[1], "r");
+
+	if (inFile == NULL) {
+		printf("Unable to open file.\n");
+		return -1;
+	}
 
 	//Reading in and inserting numbers from the file into the binary tree
 	while (!feof(inFile)) {
