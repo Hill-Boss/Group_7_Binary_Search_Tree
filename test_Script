@@ -1,9 +1,9 @@
 #!/bin/bash
 
-gcc main.c binarytree.c
+make -f Makefile.mak
 
 # Test 3 files
-./a.out test1.txt > file1
+./binary.exe test1.txt > file1
 result="$(diff "./f1" "./file1")"
 
 if $result &> /dev/null; then
@@ -13,7 +13,7 @@ else
     echo $result
 fi
 
-./a.out test2.txt > file2
+./binary.exe test2.txt > file2
 if $result &> /dev/null; then
     echo "Test 2 Passed"
 else
@@ -21,7 +21,7 @@ else
     echo $result
 fi
 
-./a.out test3.txt > file3
+./binary.exe test3.txt > file3
 if $result &> /dev/null; then
     echo "Test 3 Passed"
 else
@@ -30,7 +30,7 @@ else
 fi
 
 # Test with incorrect number of arguments
-./a.out > file4
+./binary.exe > file4
 if $result &> /dev/null; then
     echo "Test 4 Passed"
 else
@@ -38,7 +38,7 @@ else
     echo $result
 fi
 
-./a.out test2.txt test3.txt > file5
+./binary.exe test2.txt test3.txt > file5
 if $result &> /dev/null; then
     echo "Test 5 Passed"
 else
@@ -47,7 +47,7 @@ else
 fi
 
 # Test with file that doesn't exist
-./a.out test7.txt > file6
+./binary.exe test7.txt > file6
 if $result &> /dev/null; then
     echo "Test 6 Passed"
 else
