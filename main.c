@@ -6,7 +6,7 @@
 int main(int argc, char * argv []) {
 	if (argc != 2) {
 		printf("\nIncorrect number of arguments.\n");
-		return -1;
+		return 1;
 	}
 
 	//Declaring variables
@@ -25,7 +25,7 @@ int main(int argc, char * argv []) {
 
 	if (inFile == NULL) {
 		printf("\nUnable to open file.\n");
-		return -1;
+		return 1;
 	}
 
 	//Reading in and inserting numbers from the file into the binary tree
